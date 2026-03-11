@@ -1,26 +1,157 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colors - exact values from all.inn */
+  --color-yellow-400: #FFFF6B;
+  --color-pink-400: #FFBBE4;
+  --color-pink-500: #F2A8D0;
+  --color-blue-500: #7ACAFF;
+  --color-green-400: #69E691;
+  --color-orange-400: #F96926;
+  --color-purple-400: #D4B5F6;
+  --color-turquoise-400: #66FFCC;
+  --color-brown-200: #A48995;
+  --color-brown-400: #543945;
+  --color-brown-500: #402531;
+  --color-brown-700: #2C111D;
+  --color-cream-500: #FAF8EF;
+  --color-cream-600: #F8F6EF;
+  --color-cream-700: #F0EBE2;
+  --color-cream-800: #EAE2D9;
+
+  /* Fonts - original all.inn fonts */
+  --font-serif: var(--font-abc-gaisyr);
+  --font-display: var(--font-labil-grotesk);
+  --font-body: var(--font-stabil-grotesk);
+  --font-body-medium: var(--font-stabil-grotesk);
+
+  /* Breakpoints matching original */
+  --breakpoint-sm: 30rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 62rem;
+  --breakpoint-xl: 100rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Keyframes */
+@keyframes carousel {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes itemRotate {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(12deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes barFill {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base styles */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-cream-500);
+  color: var(--color-brown-700);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream-700);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brown-400);
+  border-radius: 0.25rem;
+}
+
+/* Accordion transition utility */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.47, 0.12, 0.5, 0.9);
+}
+.accordion-content.open {
+  max-height: 50rem;
+}
+
+/* Carousel */
+.carousel-track {
+  display: flex;
+  animation: carousel 25s linear infinite;
+  width: max-content;
+}
+.carousel-track:hover {
+  animation-play-state: paused;
+}
+
+/* Shape rotation */
+.shape-rotate {
+  animation: itemRotate 10s ease-in-out infinite;
+}
+.shape-rotate-slow {
+  animation: itemRotate 14s ease-in-out infinite;
+}
+.shape-rotate-fast {
+  animation: itemRotate 7s ease-in-out infinite;
+}
+
+/* Intersection observer animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(1.5rem);
+  transition: opacity 0.7s cubic-bezier(0.47, 0.12, 0.5, 0.9),
+              transform 0.7s cubic-bezier(0.47, 0.12, 0.5, 0.9);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.7s cubic-bezier(0.47, 0.12, 0.5, 0.9),
+              transform 0.7s cubic-bezier(0.47, 0.12, 0.5, 0.9);
+}
+.reveal-scale.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Hide video controls */
+video::-webkit-media-controls {
+  display: none !important;
 }
