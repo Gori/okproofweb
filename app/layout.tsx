@@ -25,9 +25,22 @@ const stabilGrotesk = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "ok.proof — Hire engineers who can build with AI",
+  title: "ok.proof — Hire people who get things done with AI",
   description:
-    "A coding test where candidates use AI to build real projects. You watch every prompt, decision, and iteration. Replace outdated take-homes in minutes.",
+    "Give candidates a real problem and an AI model. Watch every prompt, decision, and iteration. Replace take-homes with 45-minute sessions that show how people actually work.",
+  openGraph: {
+    title: "Hire those who get things done with AI",
+    description:
+      "Give candidates a real task and the latest AI model. See exactly how they work.",
+    siteName: "ok.proof",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Hire those who get things done with AI",
+    description:
+      "Give candidates a real task and the latest AI model. See exactly how they work.",
+  },
 };
 
 export default function RootLayout({
