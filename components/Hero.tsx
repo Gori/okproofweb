@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useWaitlist } from "@/components/WaitlistProvider";
 
 const roles = ["developers", "product managers", "designers", "leaders"];
 const INTERVAL = 2800;
@@ -83,6 +84,7 @@ function RoleCycler() {
 }
 
 export function Hero() {
+  const openWaitlist = useWaitlist();
   return (
     <section className="relative bg-yellow-400 min-h-[100svh] flex flex-col justify-center px-5 lg:px-10 pt-[5rem] pb-10 lg:pb-16 overflow-hidden" style={{ borderRadius: "0 0 1.5rem 1.5rem" }}>
       <div className="max-w-[64rem] mx-auto text-center relative w-full">
@@ -96,12 +98,12 @@ export function Hero() {
         </p>
 
         <div className="mt-6 lg:mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="https://app.okproof.dev"
+          <button
+            onClick={openWaitlist}
             className="bg-brown-700 text-white font-[family-name:var(--font-stabil-grotesk)] font-medium text-base px-8 py-3.5 rounded-full hover:bg-brown-500 transition-colors duration-300"
           >
-            Create your first test
-          </a>
+            Get early access
+          </button>
           <a
             href="#how-it-works"
             className="text-brown-700 font-[family-name:var(--font-stabil-grotesk)] font-medium text-base px-8 py-3.5 rounded-full border-2 border-brown-700/20 hover:border-brown-700/50 transition-colors duration-300"

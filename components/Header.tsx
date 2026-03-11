@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useScrollDirection } from "@/lib/hooks/useScrollDirection";
+import { useWaitlist } from "@/components/WaitlistProvider";
 
 const navItems = [
   { label: "Templates", href: "#roles" },
@@ -12,6 +13,7 @@ const navItems = [
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { direction, scrollY } = useScrollDirection();
+  const openWaitlist = useWaitlist();
   const isHidden = direction === "down" && scrollY > 100;
   const hasScrolled = scrollY > 50;
 
@@ -46,12 +48,12 @@ export function Header() {
                 {item.label}
               </a>
             ))}
-            <a
-              href="https://app.okproof.dev"
+            <button
+              onClick={openWaitlist}
               className="bg-brown-700 text-white text-base font-[family-name:var(--font-stabil-grotesk)] font-medium px-6 py-2.5 rounded-full hover:bg-brown-500 transition-colors duration-300"
             >
-              Sign up
-            </a>
+              Get early access
+            </button>
           </nav>
 
           {/* Hamburger */}
@@ -90,9 +92,8 @@ export function Header() {
               {item.label}
             </a>
           ))}
-          <a
-            href="https://app.okproof.dev"
-            onClick={() => setMenuOpen(false)}
+          <button
+            onClick={() => { setMenuOpen(false); openWaitlist(); }}
             className="mt-4 bg-brown-700 text-white text-base font-[family-name:var(--font-stabil-grotesk)] font-medium px-6 py-3 rounded-full"
             style={{
               transitionDelay: menuOpen ? "300ms" : "0ms",
@@ -100,8 +101,8 @@ export function Header() {
               transition: "opacity 0.3s ease",
             }}
           >
-            Sign up
-          </a>
+            Get early access
+          </button>
         </nav>
       </div>
     </>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { WaitlistProvider } from "@/components/WaitlistProvider";
 
 const abcGaisyr = localFont({
   src: "../public/fonts/ABCGaisyr-Medium.woff2",
@@ -39,7 +40,9 @@ export default function RootLayout({
       <body
         className={`${abcGaisyr.variable} ${labilGrotesk.variable} ${stabilGrotesk.variable}`}
       >
-        {children}
+        <WaitlistProvider>
+          {children}
+        </WaitlistProvider>
       </body>
     </html>
   );
