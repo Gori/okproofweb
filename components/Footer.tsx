@@ -10,7 +10,8 @@ export function Footer() {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <a
             href="#"
-            className="font-[family-name:var(--font-abc-gaisyr)] text-[1.5rem] text-brown-700 tracking-tight"
+            className="font-[family-name:var(--font-labil-grotesk)] font-medium text-[1.75rem] lg:text-[2rem] text-brown-700 tracking-tight"
+            style={{ fontFeatureSettings: '"salt", "ss01", "ss02", "ss03"' }}
           >
             ok.proof
           </a>
@@ -20,16 +21,6 @@ export function Footer() {
             <a href="#features" className="font-[family-name:var(--font-stabil-grotesk)] text-sm text-brown-400 hover:text-brown-700 transition-colors">Features</a>
             <a href="#faq" className="font-[family-name:var(--font-stabil-grotesk)] text-sm text-brown-400 hover:text-brown-700 transition-colors">FAQ</a>
             <button onClick={openWaitlist} className="font-[family-name:var(--font-stabil-grotesk)] text-sm text-brown-400 hover:text-brown-700 transition-colors">Get early access</button>
-          </div>
-        </div>
-
-        <div className="mt-8 pt-6 border-t border-cream-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-          <p className="font-[family-name:var(--font-stabil-grotesk)] text-xs text-brown-200">
-            &copy; 2026 ok.proof
-          </p>
-          <div className="flex gap-6">
-            <a href="#" className="font-[family-name:var(--font-stabil-grotesk)] text-xs text-brown-200 hover:text-brown-700 transition-colors">Privacy</a>
-            <a href="#" className="font-[family-name:var(--font-stabil-grotesk)] text-xs text-brown-200 hover:text-brown-700 transition-colors">Terms</a>
           </div>
         </div>
       </div>
