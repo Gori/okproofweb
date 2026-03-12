@@ -94,7 +94,7 @@ export function Hero() {
         </h1>
 
         <p className="mt-5 lg:mt-6 max-w-[40rem] mx-auto text-brown-700/70 font-[family-name:var(--font-stabil-grotesk)] text-[1.125rem] lg:text-[1.25rem] leading-[1.5]">
-          Give them a real problem and the latest AI model.<br />See exactly how they work.
+          Give them a real task and an AI coding agent.<br />Watch every prompt, decision, and iteration.
         </p>
 
         <div className="mt-6 lg:mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">

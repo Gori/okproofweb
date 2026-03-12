@@ -7,7 +7,7 @@ const steps = [
   {
     number: "01",
     title: "Describe the task",
-    description: "Write what you want candidates to build. Set a time limit. Send them an invite link. No scheduling, no setup on their end.",
+    description: "Pick a template or write your own task. Set a time limit, prompt cap, and AI model. Send each candidate a unique invite link.",
     color: "bg-yellow-400",
     image: (
       <div className="bg-brown-700 rounded-xl p-4">
@@ -37,7 +37,7 @@ const steps = [
   {
     number: "02",
     title: "They build with AI",
-    description: "Candidates open the link and start working. They prompt an AI agent to write code, see live results, and iterate until they're happy.",
+    description: "Candidates chat with an AI agent that writes code and builds the project. They see it come together live as they work. No IDE, no setup — just a link.",
     color: "bg-pink-400",
     image: (
       <div className="bg-brown-700 rounded-xl p-4">
@@ -66,7 +66,7 @@ const steps = [
   {
     number: "03",
     title: "You see everything",
-    description: "Replay the full session. Read every prompt they wrote. See the final code and a working demo. Review on your schedule.",
+    description: "Read every prompt they wrote. See how they broke down the problem and changed direction. Click through a working demo of what they built.",
     color: "bg-green-400",
     image: (
       <div className="bg-brown-700 rounded-xl p-4">
@@ -74,7 +74,7 @@ const steps = [
           <span className="text-white/30 text-[0.5rem] font-[family-name:var(--font-stabil-grotesk)]">Review</span>
         </div>
         <div className="flex gap-1.5 mb-3">
-          {["Preview", "Code", "Chat"].map((tab, j) => (
+          {["Preview", "Code", "Chat", "Timeline"].map((tab, j) => (
             <span key={tab} className={`text-[0.5rem] px-2 py-1 rounded-md font-[family-name:var(--font-stabil-grotesk)] ${j === 0 ? "bg-white/15 text-white/70" : "text-white/30"}`}>{tab}</span>
           ))}
         </div>

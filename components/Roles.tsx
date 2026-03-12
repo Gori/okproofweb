@@ -18,12 +18,12 @@ const roles = [
   {
     id: "product-managers",
     label: "Product",
-    oneLiner: "Can they turn messy data into a clear plan?",
+    oneLiner: "Can they turn messy inputs into a clear plan?",
     color: "bg-yellow-400",
     templates: [
-      "Prioritize 40 feature requests by revenue impact",
-      "Write a positioning doc from competitor research",
-      "Create a launch plan from a spec and a deadline",
+      "Write a product spec from raw customer research",
+      "Build a competitive analysis from a brief",
+      "Create a launch plan page from a spec",
     ],
   },
   {
@@ -43,9 +43,9 @@ const roles = [
     oneLiner: "Can they find the signal in the noise?",
     color: "bg-blue-500",
     templates: [
-      "Build a board update from 12 months of raw metrics",
-      "Propose a reorg to cut cycle time by 40%",
-      "Evaluate 4 vendor proposals and write the recommendation",
+      "Build a board update page from raw metrics",
+      "Write a vendor evaluation from 4 proposals",
+      "Create a strategy memo from messy data",
     ],
   },
 ];

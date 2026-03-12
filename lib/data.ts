@@ -222,7 +222,7 @@ export const faqItems = [
   {
     question: "What stops candidates from cheating?",
     answer:
-      "Every candidate works in an isolated environment. The only way to write code is through the AI chat. Every action is logged and replayable.",
+      "Each candidate gets an isolated Linux VM. The only way to write code is through the AI chat. Every prompt, tool call, and file change is logged and replayable.",
     color: "bg-blue-500",
   },
   {
@@ -234,13 +234,13 @@ export const faqItems = [
   {
     question: "Which AI models can candidates use?",
     answer:
-      "Claude, GPT, or Gemini. You pick the model when you create the test.",
+      "Claude Sonnet, Opus, or Haiku. GPT-5.2, GPT-5.2 Codex, or O4 Mini. Gemini 2.5 Pro, Flash, or 3.1 Pro. You pick the model when you create the test.",
     color: "bg-green-400",
   },
   {
     question: "What does it cost?",
     answer:
-      "Free while we\u2019re in beta. Sign up and create your first test in a few minutes.",
+      "Free during early access. Join the waitlist and you\u2019ll be among the first to try it.",
     color: "bg-pink-400",
   },
 ];

@@ -239,7 +239,7 @@ export function BringYourOwn() {
             </h2>
 
             <p className="font-[family-name:var(--font-stabil-grotesk)] text-base lg:text-lg text-white/70 mt-4 lg:mt-6 leading-relaxed">
-              Upload your actual work as the starting point. The closer the test is to the job, the better the signal.
+              Upload starter files from your actual product. Candidates open the sandbox with your code, your data, or your docs already inside.
             </p>
           </div>
 
