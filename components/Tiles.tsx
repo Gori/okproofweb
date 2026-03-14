@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
 import { SectionHeading } from "@/components/SectionHeading";
+import { useIntersectionObserver } from "@/lib/hooks/useIntersectionObserver";
 
 const steps = [
   {
@@ -96,19 +96,10 @@ const steps = [
 ];
 
 export function Tiles() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); obs.unobserve(el); } }, { threshold: 0.1 });
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+  const { ref, isVisible: visible } = useIntersectionObserver({ threshold: 0.1 });
 
   return (
-    <section id="how-it-works" className="min-h-[100svh] flex flex-col justify-center py-20 lg:py-32 px-5 lg:px-10" ref={sectionRef}>
+    <section id="how-it-works" className="min-h-[100svh] flex flex-col justify-center py-20 lg:py-32 px-5 lg:px-10" ref={ref}>
       <div className="max-w-[64rem] mx-auto">
         <SectionHeading label="How it works" title="Set up in minutes, not days" center />
 
