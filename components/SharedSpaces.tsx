@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
 import { SectionHeading } from "@/components/SectionHeading";
+import { useIntersectionObserver } from "@/lib/hooks/useIntersectionObserver";
 
 const features = [
   { title: "Real work, real signal", description: "Candidates build a working project, not solve a puzzle. You see what they'd actually ship on day one.", color: "bg-green-400" },
@@ -15,22 +15,10 @@ const features = [
 ];
 
 export function SharedSpaces() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.unobserve(el); } },
-      { threshold: 0.05 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+  const { ref, isVisible: visible } = useIntersectionObserver({ threshold: 0.05 });
 
   return (
-    <section id="features" className="min-h-[100svh] flex flex-col justify-center py-20 lg:py-32 px-5 lg:px-10 bg-cream-700" ref={sectionRef}>
+    <section id="features" className="min-h-[100svh] flex flex-col justify-center py-20 lg:py-32 px-5 lg:px-10 bg-cream-700" ref={ref}>
       <div className="max-w-[64rem] mx-auto">
         <SectionHeading label="Why it works" title="Built for how hiring actually happens" />
 

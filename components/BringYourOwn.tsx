@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useIntersectionObserver } from "@/lib/hooks/useIntersectionObserver";
 
 /* ── Mockup: VS Code-style editor with a GitHub issue ── */
 function CodeMockup() {
@@ -202,19 +202,7 @@ const examples = [
 ];
 
 export function BringYourOwn() {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.unobserve(el); } },
-      { threshold: 0.1 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+  const { ref, isVisible: visible } = useIntersectionObserver({ threshold: 0.1 });
 
   return (
     <section id="your-product" ref={ref} className="px-5 lg:px-10 pt-0 pb-20 lg:pb-32">

@@ -1,7 +1,7 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
 import { SectionHeading } from "@/components/SectionHeading";
+import { useIntersectionObserver } from "@/lib/hooks/useIntersectionObserver";
 
 const roles = [
   {
@@ -51,19 +51,7 @@ const roles = [
 ];
 
 function RoleCard({ role, index }: { role: typeof roles[number]; index: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.unobserve(el); } },
-      { threshold: 0.15 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+  const { ref, isVisible: visible } = useIntersectionObserver({ threshold: 0.15 });
 
   return (
     <div

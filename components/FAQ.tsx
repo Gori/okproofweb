@@ -1,27 +1,16 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import { faqItems } from "@/lib/data";
 import { SectionHeading } from "@/components/SectionHeading";
+import { useIntersectionObserver } from "@/lib/hooks/useIntersectionObserver";
 
 export function FAQ() {
   const [openIdx, setOpenIdx] = useState<number | null>(null);
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([e]) => { if (e.isIntersecting) { setVisible(true); obs.unobserve(el); } },
-      { threshold: 0.05 }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, []);
+  const { ref, isVisible: visible } = useIntersectionObserver({ threshold: 0.05 });
 
   return (
-    <section id="faq" className="min-h-[100svh] flex flex-col justify-center py-20 lg:py-32 px-5 lg:px-10" ref={sectionRef}>
+    <section id="faq" className="min-h-[100svh] flex flex-col justify-center py-20 lg:py-32 px-5 lg:px-10" ref={ref}>
       <div className="max-w-[64rem] mx-auto">
         <SectionHeading label="FAQ" title="Common questions" />
 

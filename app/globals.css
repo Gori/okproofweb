@@ -97,16 +97,6 @@ body {
   border-radius: 0.25rem;
 }
 
-/* Accordion transition utility */
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.47, 0.12, 0.5, 0.9);
-}
-.accordion-content.open {
-  max-height: 50rem;
-}
-
 /* Carousel */
 .carousel-track {
   display: flex;
